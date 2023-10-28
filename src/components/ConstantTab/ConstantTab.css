@@ -1,6 +1,22 @@
-.constantTab{
-  height: 300px;
-  width: 300px;
-  background-color: black;
-  margin-left: 300px;
+/* Mon fichier ConstantTab.css */
+
+.constantTab.secondTab {
+  background: linear-gradient(to right, #ebe3e3, #f30707); /* Couleur de fond personnalisée pour la deuxième instance de ConstantTab */
 }
+
+.constantTab{
+  height: 120px;
+  width: 210px;
+  margin-left: 300px;
+  border-radius: 10px;
+background: linear-gradient(to right, #f4c4f3, #fc67fa);
+opacity: 0.7;
+box-shadow: 6px 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+
+.constantTab:hover{
+  box-shadow: 6px 6px 20px rgba(92, 88, 88, 0.9);
+}
+
+

@@ -1,12 +1,12 @@
+//Mon fichier ConstantTab.js
+
+import React from "react";
 import "./ConstantTab.css";
 
-function ConstantTab(){
+function ConstantTab({ isSecond }) {
+  const tabClass = isSecond ? "secondTab" : "";
 
-  return(
-  <div>
-  <div className="constantTab"></div>
-  </div>
-  )
+  return <div className={`constantTab ${tabClass}`}></div>;
 }
 
 export default ConstantTab;

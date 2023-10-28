@@ -2,12 +2,15 @@
 padding: 4%;
 width: 185px;
 height: 95vh;
-background-image: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);
-border-radius: 50px;
+background-image: linear-gradient(120deg, #62e4e9 0%, #3d7dc7 100%);
+border-top-left-radius: 0px;
+border-top-right-radius: 30px;
+border-bottom-left-radius: 0px;
+border-bottom-right-radius: 30px;
 }
 
 #navTabUl{
- margin-top: 200px;
+ margin-top: 105px;
 }
 
 .navTab{
@@ -23,10 +26,10 @@ font-family: 'Bitter', serif;
 font-weight:bolder;
 transition: color 0.4s;
 
-border-top-left-radius: 30px;
-border-top-right-radius: 30px;
-border-bottom-left-radius: 30px;
-border-bottom-right-radius: 30px;
+border-top-left-radius: 0px;
+border-top-right-radius: 20px;
+border-bottom-left-radius: 20px;
+border-bottom-right-radius: 0px;
 
 box-shadow: 6px 6px 20px rgba(0, 0, 0, 0.2);
 }
@@ -57,3 +60,21 @@ color: #ffffff;
 background-color: rgba(255, 255, 255, .15);
 }
 
+.icon.symptoCareLogo{
+width: 40px; 
+height: 40px;
+
+}
+
+.mainTitle{
+font-weight:bolder;
+text-shadow: rgb(85, 83, 81) 1px 15 5px;
+background: linear-gradient(to left, rgb(2, 97, 240), rgb(6, 1, 26));
+background-clip: text;
+ -webkit-background-clip: text;
+ -webkit-text-fill-color: transparent;    
+ -webkit-text-stroke-width: 0.2px;
+ -webkit-text-stroke-color: rgb(164, 188, 189);
+font-size: x-large;
+filter: brightness(1.60);
+}

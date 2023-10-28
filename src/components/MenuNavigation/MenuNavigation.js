@@ -4,6 +4,14 @@ function MenuNavigation(){
 return (
   <div className="MenuNavigation">
     <div className="sideFlap">
+      <div id="title">
+        <img
+          src="/icons/LogoSymptoCare-removebg-preview.png"
+          alt="Image"
+          className="icon symptoCareLogo"
+        />
+        <h1 className="mainTitle">SymptoCare</h1>
+      </div>
       <div id="navTabUl">
         <ul>
           <li className="navTab">

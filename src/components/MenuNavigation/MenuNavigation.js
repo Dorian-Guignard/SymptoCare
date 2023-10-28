@@ -8,45 +8,35 @@ return (
         <ul>
           <li className="navTab">
             <div className="icon-text">
-              <img
-                src="/icons/lanalyse-des-donnees.png"
-                alt="Image"
-                className="icon"
-              />
-              Dashboard
+              <img src="/icons/menu.png" alt="Image" className="icon" />
+              Tableau de bord
             </div>
           </li>
           <li className="navTab">
             <div className="icon-text">
               <img
-                src="/icons/ordre-du-jour.png"
+                src="/icons/livre-medical.png"
                 alt="Image"
-                className="icon"
+                className="icon monCarnet"
               />
               Mon carnet
             </div>
           </li>
           <li className="navTab">
             <div className="icon-text">
-              <img src="/icons/symptome.png" alt="Image" className="icon" />
+              <img src="/icons/eclair.png" alt="Image" className="icon" />
               Symptômes
             </div>
           </li>
           <li className="navTab">
             <div className="icon-text">
-              <img
-                src="/icons/application-de-messagerie.png"
-                alt="Image"
-                className="icon"
-              />
+              <img src="/icons/email.png" alt="Image" className="icon" />
               Messagerie
             </div>
           </li>
           <li className="navTab">
             <div className="icon-text">
-              <img src="/icons/temps.png" 
-              alt="Image" 
-              className="icon" />
+              <img src="/icons/contracter.png" alt="Image" className="icon" />
               Historique
             </div>
           </li>

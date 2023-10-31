@@ -1,11 +1,12 @@
-/* Mon fichier Graph.css */
+/* Mon fichier SectionBottom.css */
 
-.Graph{
+.SectionBottom{
+
   
   
-height: 510px;
-width: 1000px;
-margin-right: 470px;
+height: 250px;
+width:300px;
+margin-right: 60px;
 margin-top: 215px;
   position: absolute;
   top: 0;
@@ -16,8 +17,8 @@ margin-top: 215px;
 
 }
 
-#imgGraph {
+#imgSectionBottom {
   width: 100%; /* Ajuste la largeur de l'image pour éviter le débordement */
-  max-height: 100%; /* Ajuste la hauteur de l'image pour éviter le débordement */
+  height: 100%; /* Ajuste la hauteur de l'image pour éviter le débordement */
   border-radius: 10px;
 }

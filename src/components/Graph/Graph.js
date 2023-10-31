@@ -3,9 +3,12 @@ import "./Graph.css";
 
 function Graph(){
 return (
-<section className="Graph">
-
-</section>
+  <section className="Graph">
+    <img
+      id="imgGraph"
+      src="images/modele-infographie-chronologie-degrade/5245184.jpg"
+    ></img>
+  </section>
 );
 }
 

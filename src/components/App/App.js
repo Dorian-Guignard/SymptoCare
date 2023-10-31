@@ -3,6 +3,8 @@ import  MenuNavigation  from "../MenuNavigation/MenuNavigation.js";
 import ConstantTab from "../ConstantTab/ConstantTab.js";
 import './App.css';
 import Graph from '../Graph/Graph.js';
+import SectionTop from '../SectionTop/SectionTop.js';
+import SectionBottom from '../SectionBottom/SectionBottom.js';
 
 // == Composant
 function App() {
@@ -15,6 +17,8 @@ function App() {
       <ConstantTab tabClass="fourthTab" />
       <ConstantTab tabClass="fifthTab" />
       <Graph />
+      <SectionTop />
+      <SectionBottom />
     </div>
   );
 }

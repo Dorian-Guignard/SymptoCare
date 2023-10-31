@@ -69,7 +69,7 @@ height: 40px;
 .mainTitle{
 font-weight:bolder;
 text-shadow: rgb(85, 83, 81) 1px 15 5px;
-background: linear-gradient(to left, rgb(2, 97, 240), rgb(6, 1, 26));
+background: linear-gradient(to left, rgb(166, 195, 202), rgb(7, 231, 145));
 background-clip: text;
  -webkit-background-clip: text;
  -webkit-text-fill-color: transparent;    

@@ -1,24 +1,21 @@
 // Mon fichier App.js
-import  MenuNavigation  from "../MenuNavigation/MenuNavigation.js";
-import ConstantTab from "../ConstantTab/ConstantTab.js";
 import './App.css';
-import Graph from '../Graph/Graph.js';
-import SectionTop from '../SectionTop/SectionTop.js';
-import SectionBottom from '../SectionBottom/SectionBottom.js';
+import { Route, Routes } from "react-router-dom";
+import MonCarnet from "../MonCarnet/MonCarnet";
+import Dashboard from "../Dashboard/Dashboard.js";
 
 // == Composant
 function App() {
   return (
     <div className="app">
-      <MenuNavigation />
-      <ConstantTab tabClass="firstTab" />
-      <ConstantTab tabClass="secondTab" />
-      <ConstantTab tabClass="thirdTab" />
-      <ConstantTab tabClass="fourthTab" />
-      <ConstantTab tabClass="fifthTab" />
-      <Graph />
-      <SectionTop />
-      <SectionBottom />
+     
+      <Routes>
+        <Route path="/" element={ <Dashboard />}/>
+        <Route path="/mon-carnet" element={<MonCarnet />} />
+        <Route path="/symptomes" />
+        <Route path="/messagerie" />
+        <Route path="/historique" />
+      </Routes>
     </div>
   );
 }

@@ -6,7 +6,7 @@ import SectionTop from "./SectionTop/SectionTop.js";
 import SectionBottom from "./SectionBottom/SectionBottom.js";
 import "./Dashboard.css";
 
-// == Composant
+// == Composant App.js
 function App() {
   return (
     <div className="app">

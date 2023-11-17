@@ -1,4 +1,5 @@
-// Mon fichier App.js
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import MenuNavigation from "../MenuNavigation/MenuNavigation.js";
 import ConstantTab from "./ConstantTab/ConstantTab.js";
 import Graph from "./Graph/Graph.js";
@@ -8,6 +9,25 @@ import "./Dashboard.css";
 
 // == Composant App.js
 function App() {
+  const [loading, setLoading] = useState(true);
+  const [patients, setPatients] = useState([]);
+
+  useEffect(() => {
+    const apiBackend = axios
+      .get("http://localhost:8000/api/patients")
+      .then((response) => {
+        const patientsAPI = response.data;
+        setPatients(patientsAPI);
+        console.log(patientsAPI);
+      })
+      .catch((error) => {
+        console.error(error);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  }, []); // Ensure the dependency array is empty if you want this effect to run only once
+
   return (
     <div className="app">
       <MenuNavigation />

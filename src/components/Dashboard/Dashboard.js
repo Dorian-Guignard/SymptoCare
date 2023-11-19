@@ -7,8 +7,9 @@ import SectionTop from "./SectionTop/SectionTop.js";
 import SectionBottom from "./SectionBottom/SectionBottom.js";
 import "./Dashboard.css";
 
+
 // == Composant App.js
-function App() {
+function Dashboard() {
   const [loading, setLoading] = useState(true);
   const [patients, setPatients] = useState([]);
 
@@ -18,7 +19,6 @@ function App() {
       .then((response) => {
         const patientsAPI = response.data;
         setPatients(patientsAPI);
-        console.log(patientsAPI);
       })
       .catch((error) => {
         console.error(error);
@@ -28,10 +28,12 @@ function App() {
       });
   }, []); // Ensure the dependency array is empty if you want this effect to run only once
 
+
+
   return (
     <div className="app">
       <MenuNavigation />
-      <ConstantTab tabClass="firstTab" />
+      <ConstantTab douleur={patients.constant} tabClass="firstTab" />
       <ConstantTab tabClass="secondTab" />
       <ConstantTab tabClass="thirdTab" />
       <ConstantTab tabClass="fourthTab" />
@@ -44,4 +46,4 @@ function App() {
 }
 
 // == Export
-export default App;
+export default Dashboard;

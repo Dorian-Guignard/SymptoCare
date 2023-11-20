@@ -3,7 +3,7 @@ import React from "react";
 import "./ConstantTab.css";
 
 
-function ConstantTab({ tabClass, douleur }) {
+function ConstantTab({ tabClass, douleur, diastoleDate }) {
   let douleurSection = (
     <section>
       <div className="title-tab">
@@ -19,8 +19,8 @@ function ConstantTab({ tabClass, douleur }) {
           />
         </div>
         <div className="text-tab">
-          <p>EN = { douleur }</p>
-          <p className="text-date-time">31/12/2023</p>
+          <p>EN = {douleur}</p>
+          <p className="text-date-time">{diastoleDate}</p>
         </div>
       </div>
     </section>

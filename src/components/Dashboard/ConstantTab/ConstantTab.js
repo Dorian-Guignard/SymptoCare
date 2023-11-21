@@ -2,8 +2,21 @@
 import React from "react";
 import "./ConstantTab.css";
 
-
-function ConstantTab({ tabClass, douleur, diastoleDate }) {
+function ConstantTab({
+  tabClass,
+  diastole,
+  diastoleDate,
+  douleurDate,
+  douleur,
+  temperature,
+  temperatureDate,
+  poids,
+  poidsDate,
+  systole,
+  saturationDate,
+  saturation,
+  fc,
+}) {
   let douleurSection = (
     <section>
       <div className="title-tab">
@@ -20,7 +33,7 @@ function ConstantTab({ tabClass, douleur, diastoleDate }) {
         </div>
         <div className="text-tab">
           <p>EN = {douleur}</p>
-          <p className="text-date-time">{diastoleDate}</p>
+          <p className="text-date-time">{douleurDate}</p>
         </div>
       </div>
     </section>
@@ -40,9 +53,11 @@ function ConstantTab({ tabClass, douleur, diastoleDate }) {
           />
         </div>
         <div className="text-tab coeur">
-          <p>TA = 125/75</p>
-          <p>FC = 76</p>
-          <p className="text-date-time">31/12/2023</p>
+          <p>
+            TA = {systole}/{diastole}
+          </p>
+          <p>FC = {fc} bpm</p>
+          <p className="text-date-time">{diastoleDate}</p>
         </div>
       </div>
     </section>
@@ -62,8 +77,8 @@ function ConstantTab({ tabClass, douleur, diastoleDate }) {
           />
         </div>
         <div className="text-tab">
-          <p>37,5°</p>
-          <p className="text-date-time">31/12/2023</p>
+          <p>{temperature}°</p>
+          <p className="text-date-time">{temperatureDate}</p>
         </div>
       </div>
     </section>
@@ -83,8 +98,8 @@ function ConstantTab({ tabClass, douleur, diastoleDate }) {
           />
         </div>
         <div className="text-tab">
-          <p>67,5 kg</p>
-          <p className="text-date-time">31/12/2023</p>
+          <p>{poids} kg</p>
+          <p className="text-date-time">{poidsDate}</p>
         </div>
       </div>
     </section>
@@ -104,8 +119,8 @@ function ConstantTab({ tabClass, douleur, diastoleDate }) {
           />
         </div>
         <div className="text-tab">
-          <p>99 %</p>
-          <p className="text-date-time">31/12/2023</p>
+          <p>{saturation} %</p>
+          <p className="text-date-time">{saturationDate}</p>
         </div>
       </div>
     </section>

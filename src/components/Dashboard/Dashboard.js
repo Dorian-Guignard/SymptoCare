@@ -7,27 +7,63 @@ import SectionTop from "./SectionTop/SectionTop.js";
 import SectionBottom from "./SectionBottom/SectionBottom.js";
 import "./Dashboard.css";
 
-// == Composant App.js
-function Dashboard() {
-const { diastoleValue, formattedDiastoleDate, loading } = DashboardData();
-  return (
-    <div className="app">
-      <MenuNavigation />
-      <ConstantTab
-        douleur={diastoleValue}
-        diastoleDate={formattedDiastoleDate}
-        tabClass="firstTab"
-      />
-      <ConstantTab tabClass="secondTab" />
-      <ConstantTab tabClass="thirdTab" />
-      <ConstantTab tabClass="fourthTab" />
-      <ConstantTab tabClass="fifthTab" />
-      <Graph />
-      <SectionTop />
-      <SectionBottom />
-    </div>
-  );
-}
+
+
+      // == Composant App.js
+      function Dashboard() {
+
+        const {
+          diastoleValue,
+          formattedDiastoleDate,
+          formattedDouleurDate,
+          douleurValue,
+          temperatureValue,
+          formattedTemperatureDate,
+          poidsValue,
+          formattedPoidsDate,
+          systoleValue,
+          formattedSaturationDate,
+          saturationValue,
+          fcValue,
+          loading,
+        } = DashboardData();
+
+        return (
+          <div className="app">
+            <MenuNavigation />
+            <ConstantTab
+              douleur={douleurValue}
+              douleurDate={formattedDouleurDate}
+              tabClass="firstTab"
+            />
+            <ConstantTab
+              diastole={diastoleValue}
+              systole={systoleValue}
+              fc={fcValue}
+              diastoleDate={formattedDiastoleDate}
+              tabClass="secondTab"
+            />
+            <ConstantTab
+              temperature={temperatureValue}
+              temperatureDate={formattedTemperatureDate}
+              tabClass="thirdTab"
+            />
+            <ConstantTab
+              poids={poidsValue}
+              poidsDate={formattedPoidsDate}
+              tabClass="fourthTab"
+            />
+            <ConstantTab
+              saturation={saturationValue}
+              saturationDate={formattedSaturationDate}
+              tabClass="fifthTab"
+            />
+            <Graph />
+            <SectionTop />
+            <SectionBottom />
+          </div>
+        );
+      };
 
 // == Export
 export default Dashboard;

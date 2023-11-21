@@ -3,6 +3,10 @@ import { useGetConstant } from "../../Utils/api.js";
 export function DashboardData() {
   const { loading, patients } = useGetConstant();
 
+  function decimal(value0) {
+    return Math.trunc(value0);
+  }
+
   // Assurez-vous que 'patients' est un objet avant d'essayer de l'utiliser
   if (!patients || typeof patients !== "object" || !patients.patients) {
     return <p>Données de l'API en chargement.</p>;
@@ -16,7 +20,6 @@ export function DashboardData() {
     (a, b) => new Date(b.date) - new Date(a.date)
   );
 
-
   // Trouvez la constante de type "diastole" parmi les constantes triées
   const diastoleConstant = sortedConstants.find(
     (constant) => constant.constantType.type === "diastole"
@@ -28,26 +31,24 @@ export function DashboardData() {
   }
 
   // Obtenez la valeur de la constante de type "diastole"
-  const diastoleValue = diastoleConstant.value;
+  const diastoleValue = decimal(diastoleConstant.value);
   const diastoleDate = new Date(diastoleConstant.date);
   const formattedDiastoleDate = diastoleDate.toLocaleString("fr-FR");
-
 
   // Trouvez la constante de type "douleur" parmi les constantes triées
   const douleurConstant = sortedConstants.find(
     (constant) => constant.constantType.type === "douleur"
   );
- 
+
   // Vérifiez si la constante de type "douleur" a été trouvée
   if (!douleurConstant) {
     return <p>Constante de type "douleur" non trouvée.</p>;
   }
 
   // Obtenez la valeur de la constante de type "douleur"
-  const douleurValue = douleurConstant.value;
+  const douleurValue = decimal(douleurConstant.value);
   const douleurDate = new Date(douleurConstant.date);
   const formattedDouleurDate = douleurDate.toLocaleString("fr-FR");
-
 
   // Trouvez la constante de type "temperature" parmi les constantes triées
   const temperatureConstant = sortedConstants.find(
@@ -64,7 +65,6 @@ export function DashboardData() {
   const temperatureDate = new Date(temperatureConstant.date);
   const formattedTemperatureDate = temperatureDate.toLocaleString("fr-FR");
 
-
   // Trouvez la constante de type "poids" parmi les constantes triées
   const poidsConstant = sortedConstants.find(
     (constant) => constant.constantType.type === "poids"
@@ -79,8 +79,6 @@ export function DashboardData() {
   const poidsValue = poidsConstant.value;
   const poidsDate = new Date(poidsConstant.date);
   const formattedPoidsDate = poidsDate.toLocaleString("fr-FR");
-
-  
 
   // Trouvez la constante de type "imc" parmi les constantes triées
   const imcConstant = sortedConstants.find(
@@ -97,8 +95,6 @@ export function DashboardData() {
   const imcDate = new Date(imcConstant.date);
   const formattedImcDate = imcDate.toLocaleString("fr-FR");
 
-
-
   // Trouvez la constante de type "systole" parmi les constantes triées
   const systoleConstant = sortedConstants.find(
     (constant) => constant.constantType.type === "systole"
@@ -110,11 +106,9 @@ export function DashboardData() {
   }
 
   // Obtenez la valeur de la constante de type "systole"
-  const systoleValue = systoleConstant.value;
+  const systoleValue = decimal(systoleConstant.value);
   const systoleDate = new Date(systoleConstant.date);
   const formattedSystoleDate = systoleDate.toLocaleString("fr-FR");
-
-  
 
   // Trouvez la constante de type "taille" parmi les constantes triées
   const tailleConstant = sortedConstants.find(
@@ -131,8 +125,6 @@ export function DashboardData() {
   const tailleDate = new Date(tailleConstant.date);
   const formattedTailleDate = tailleDate.toLocaleString("fr-FR");
 
-  
-
   // Trouvez la constante de type "saturation" parmi les constantes triées
   const saturationConstant = sortedConstants.find(
     (constant) => constant.constantType.type === "saturation"
@@ -144,11 +136,9 @@ export function DashboardData() {
   }
 
   // Obtenez la valeur de la constante de type "saturation"
-  const saturationValue = saturationConstant.value;
+  const saturationValue = decimal(saturationConstant.value);
   const saturationDate = new Date(saturationConstant.date);
   const formattedSaturationDate = saturationDate.toLocaleString("fr-FR");
-
- 
 
   // Trouvez la constante de type "fc" parmi les constantes triées
   const fcConstant = sortedConstants.find(
@@ -161,11 +151,9 @@ export function DashboardData() {
   }
 
   // Obtenez la valeur de la constante de type "fc"
-  const fcValue = fcConstant.value;
+  const fcValue = decimal(fcConstant.value);
   const fcDate = new Date(fcConstant.date);
   const formattedFcDate = fcDate.toLocaleString("fr-FR");
-
-
 
   return {
     diastoleValue,

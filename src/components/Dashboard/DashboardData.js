@@ -16,6 +16,7 @@ export function DashboardData() {
     (a, b) => new Date(b.date) - new Date(a.date)
   );
 
+
   // Trouvez la constante de type "diastole" parmi les constantes triées
   const diastoleConstant = sortedConstants.find(
     (constant) => constant.constantType.type === "diastole"
@@ -31,16 +32,12 @@ export function DashboardData() {
   const diastoleDate = new Date(diastoleConstant.date);
   const formattedDiastoleDate = diastoleDate.toLocaleString("fr-FR");
 
-  // Triez le tableau douleur par date dans l'ordre décroissant
-  const sortedDouleur = patientDetails.douleur.sort(
-    (a, b) => new Date(b.date) - new Date(a.date)
-  );
 
   // Trouvez la constante de type "douleur" parmi les constantes triées
-  const douleurConstant = sortedDouleur.find(
-    (douleur) => douleur.type === "douleur"
+  const douleurConstant = sortedConstants.find(
+    (constant) => constant.constantType.type === "douleur"
   );
-
+ 
   // Vérifiez si la constante de type "douleur" a été trouvée
   if (!douleurConstant) {
     return <p>Constante de type "douleur" non trouvée.</p>;
@@ -51,14 +48,10 @@ export function DashboardData() {
   const douleurDate = new Date(douleurConstant.date);
   const formattedDouleurDate = douleurDate.toLocaleString("fr-FR");
 
-  // Triez le tableau température par date dans l'ordre décroissant
-  const sortedTemperature = patientDetails.temperature.sort(
-    (a, b) => new Date(b.date) - new Date(a.date)
-  );
 
   // Trouvez la constante de type "temperature" parmi les constantes triées
-  const temperatureConstant = sortedTemperature.find(
-    (temperature) => temperature.type === "temperature"
+  const temperatureConstant = sortedConstants.find(
+    (constant) => constant.constantType.type === "température"
   );
 
   // Vérifiez si la constante de type "temperature" a été trouvée
@@ -71,14 +64,10 @@ export function DashboardData() {
   const temperatureDate = new Date(temperatureConstant.date);
   const formattedTemperatureDate = temperatureDate.toLocaleString("fr-FR");
 
-  // Triez le tableau poids par date dans l'ordre décroissant
-  const sortedPoids = patientDetails.poids.sort(
-    (a, b) => new Date(b.date) - new Date(a.date)
-  );
 
   // Trouvez la constante de type "poids" parmi les constantes triées
-  const poidsConstant = sortedPoids.find(
-    (poids) => poids.type === "poids"
+  const poidsConstant = sortedConstants.find(
+    (constant) => constant.constantType.type === "poids"
   );
 
   // Vérifiez si la constante de type "poids" a été trouvée
@@ -91,14 +80,11 @@ export function DashboardData() {
   const poidsDate = new Date(poidsConstant.date);
   const formattedPoidsDate = poidsDate.toLocaleString("fr-FR");
 
-  // Triez le tableau imc par date dans l'ordre décroissant
-  const sortedImc = patientDetails.imc.sort(
-    (a, b) => new Date(b.date) - new Date(a.date)
-  );
+  
 
   // Trouvez la constante de type "imc" parmi les constantes triées
-  const imcConstant = sortedImc.find(
-    (imc) => imc.type === "imc"
+  const imcConstant = sortedConstants.find(
+    (constant) => constant.constantType.type === "imc"
   );
 
   // Vérifiez si la constante de type "imc" a été trouvée
@@ -111,14 +97,11 @@ export function DashboardData() {
   const imcDate = new Date(imcConstant.date);
   const formattedImcDate = imcDate.toLocaleString("fr-FR");
 
-  // Triez le tableau systole par date dans l'ordre décroissant
-  const sortedSystole = patientDetails.systole.sort(
-    (a, b) => new Date(b.date) - new Date(a.date)
-  );
+
 
   // Trouvez la constante de type "systole" parmi les constantes triées
-  const systoleConstant = sortedSystole.find(
-    (systole) => systole.type === "systole"
+  const systoleConstant = sortedConstants.find(
+    (constant) => constant.constantType.type === "systole"
   );
 
   // Vérifiez si la constante de type "systole" a été trouvée
@@ -131,14 +114,11 @@ export function DashboardData() {
   const systoleDate = new Date(systoleConstant.date);
   const formattedSystoleDate = systoleDate.toLocaleString("fr-FR");
 
-  // Triez le tableau taille par date dans l'ordre décroissant
-  const sortedTaille = patientDetails.taille.sort(
-    (a, b) => new Date(b.date) - new Date(a.date)
-  );
+  
 
   // Trouvez la constante de type "taille" parmi les constantes triées
-  const tailleConstant = sortedTaille.find(
-    (taille) => taille.type === "taille"
+  const tailleConstant = sortedConstants.find(
+    (constant) => constant.constantType.type === "taille"
   );
 
   // Vérifiez si la constante de type "taille" a été trouvée
@@ -151,14 +131,11 @@ export function DashboardData() {
   const tailleDate = new Date(tailleConstant.date);
   const formattedTailleDate = tailleDate.toLocaleString("fr-FR");
 
-  // Triez le tableau saturation par date dans l'ordre décroissant
-  const sortedSaturation = patientDetails.saturation.sort(
-    (a, b) => new Date(b.date) - new Date(a.date)
-  );
+  
 
   // Trouvez la constante de type "saturation" parmi les constantes triées
-  const saturationConstant = sortedSaturation.find(
-    (saturation) => saturation.type === "saturation"
+  const saturationConstant = sortedConstants.find(
+    (constant) => constant.constantType.type === "saturation"
   );
 
   // Vérifiez si la constante de type "saturation" a été trouvée
@@ -171,14 +148,11 @@ export function DashboardData() {
   const saturationDate = new Date(saturationConstant.date);
   const formattedSaturationDate = saturationDate.toLocaleString("fr-FR");
 
-  // Triez le tableau fc par date dans l'ordre décroissant
-  const sortedFc = patientDetails.fc.sort(
-    (a, b) => new Date(b.date) - new Date(a.date)
-  );
+ 
 
   // Trouvez la constante de type "fc" parmi les constantes triées
-  const fcConstant = sortedFc.find(
-    (fc) => fc.type === "fc"
+  const fcConstant = sortedConstants.find(
+    (constant) => constant.constantType.type === "fréquence cardiaque"
   );
 
   // Vérifiez si la constante de type "fc" a été trouvée
@@ -190,6 +164,8 @@ export function DashboardData() {
   const fcValue = fcConstant.value;
   const fcDate = new Date(fcConstant.date);
   const formattedFcDate = fcDate.toLocaleString("fr-FR");
+
+
 
   return {
     diastoleValue,

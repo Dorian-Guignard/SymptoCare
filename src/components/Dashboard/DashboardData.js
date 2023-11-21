@@ -145,8 +145,23 @@ export function DashboardData() {
   const saturationValue = saturation.value;
   const saturationDate = new Date(saturation.date);
   const formattedSaturationDate = saturationDate.toLocaleString("fr-FR");
+
+    // Triez le tableau fc par date dans l'ordre décroissant
+  const sortedFc = fcDetails.fc.sort(
+    (a, b) => new Date(b.date) - new Date(a.date)
+  );
+
+  // Trouvez la constante de type "fc" parmi les constantes triées
+  const fc = fc.find(
+    (fc) => constant.fc.type === "fc"
+  );
+
+  // Obtenez la valeur de la constante de type "fc"
+  const fcValue = fc.value;
+  const fcDate = new Date(fc.date);
+  const formattedFcDate = fcDate.toLocaleString("fr-FR");
   
   return { diastoleValue, formattedDiastoleDate, formattedDouleurDate, douleurValue, temperatureValue, formattedTemperatureDate, poidsValue, formattedPoidsDate, imcValue, formattedImcDate,
-         systoleValue, formattedSystoleDate, formattedTailleDate, tailleValue, formattedSaturationDate, saturationValue
+         systoleValue, formattedSystoleDate, formattedTailleDate, tailleValue, formattedSaturationDate, saturationValue, fcValue, formattedFcDate
          };
 }

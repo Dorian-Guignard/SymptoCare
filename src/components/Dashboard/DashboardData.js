@@ -34,8 +34,8 @@ export function DashboardData() {
   );
 
   // Trouvez la constante de type "douleur" parmi les constantes triées
-  const douleur = sortedConstants.find(
-    (constant) => constant.constantType.type === "douleur"
+  const douleur = douleur.find(
+    (douleur) => constant.douleur.type === "douleur"
   );
 
 

@@ -26,8 +26,24 @@ export function DashboardData() {
   // Obtenez la valeur de la constante de type "diastole"
   const diastoleValue = diastoleConstant.value;
   const diastoleDate = new Date(diastoleConstant.date);
-
   const formattedDiastoleDate = diastoleDate.toLocaleString("fr-FR");
+  
+ // Triez le tableau douleur par date dans l'ordre décroissant
+  const sortedDouleur = patientDetails.douleur.sort(
+    (a, b) => new Date(b.date) - new Date(a.date)
+  );
 
-  return { diastoleValue, formattedDiastoleDate };
+  // Trouvez la constante de type "douleur" parmi les constantes triées
+  const douleur = sortedConstants.find(
+    (constant) => constant.constantType.type === "douleur"
+  );
+
+
+  // Obtenez la valeur de la constante de type "diastole"
+  const douleurValue = douleur.value;
+  const douleurDate = new Date(douleur.date);
+  const formattedDouleurDate = douleurDate.toLocaleString("fr-FR");
+
+  
+  return { diastoleValue, formattedDiastoleDate,formattedDouleurDate,douleurValue };
 }

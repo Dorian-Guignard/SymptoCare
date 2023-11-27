@@ -1,14 +1,15 @@
 /* Mon fichier MonCarnet.css */
 
-.container-mon-carnet{
-position: relative;
+.mon-carnet-container{
+display: flex;
 
 }
 
 .form-container {
-    position: absolute;
-  top: 62px;
-  left: 300px;
+  margin-top: 62px; 
+  margin-left: 300px;
+  display: flex; 
+  flex-direction: column; 
 
 
   width: 400px;

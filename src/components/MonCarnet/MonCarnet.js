@@ -141,12 +141,11 @@ let healthInformation = (
 );
 
   return (
-    <div className="container-mon-carnet">
+    <div className="mon-carnet-container">
       <MenuNavigation />
       {formCarnet}
       {healthInformation}
     </div>
-    
   );
   
 }

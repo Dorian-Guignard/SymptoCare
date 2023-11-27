@@ -1,17 +1,20 @@
 // Mon fichier App.js
 import './App.css';
 import { Route, Routes } from "react-router-dom";
+import { Link } from "react-router-dom";
 import MonCarnet from "../MonCarnet/MonCarnet";
 import Dashboard from "../Dashboard/Dashboard.js";
 import Symptome from '../Symptome/Symptome';
 import Historique from '../Historique/Historique';
 import Messagerie from '../Messagerie/Messagerie';
+import Login from '../Log/Login/Login';
 
 // == Composant
 function App() {
 
 const loginIcon = (
-  <div className="app-container-login">
+  <Link to="/login">
+ <div className="app-container-login">
     <button className="Btn2">
       <div className="sign">
         <svg viewBox="0 0 512 512">
@@ -21,6 +24,7 @@ const loginIcon = (
       <div className="text">Login</div>
     </button>
   </div>
+  </Link>
 );
 
 const logoutIcon = (
@@ -41,6 +45,7 @@ const logoutIcon = (
       {loginIcon}
       {logoutIcon}
       <Routes>
+        <Route path="/login" element={<Login />} />
         <Route path="/" element={<Dashboard />} />
         <Route path="/mon-carnet" element={<MonCarnet />} />
         <Route path="/symptomes" element={<Symptome />} />

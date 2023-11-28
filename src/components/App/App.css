@@ -152,7 +152,7 @@
   transition-duration: .3s;
   padding-right: 10px;
 }
-/* button click effect*/
+/* button click effect1*/
 .Btn2:active {
   transform: translate(2px ,2px);
 }

@@ -29,38 +29,42 @@ import "./Dashboard.css";
         } = DashboardData();
 
         return (
-          <div className="app">
-            <MenuNavigation />
-            <ConstantTab
-              douleur={douleurValue}
-              douleurDate={formattedDouleurDate}
-              tabClass="firstTab"
-            />
-            <ConstantTab
-              diastole={diastoleValue}
-              systole={systoleValue}
-              fc={fcValue}
-              diastoleDate={formattedDiastoleDate}
-              tabClass="secondTab"
-            />
-            <ConstantTab
-              temperature={temperatureValue}
-              temperatureDate={formattedTemperatureDate}
-              tabClass="thirdTab"
-            />
-            <ConstantTab
-              poids={poidsValue}
-              poidsDate={formattedPoidsDate}
-              tabClass="fourthTab"
-            />
-            <ConstantTab
-              saturation={saturationValue}
-              saturationDate={formattedSaturationDate}
-              tabClass="fifthTab"
-            />
-            <Graph />
-            <SectionTop />
-            <SectionBottom />
+          <div className="mon-dashboard-container">
+            <div className="app">
+              <MenuNavigation />
+              <div className="constantTab-container">
+              <ConstantTab
+                douleur={douleurValue}
+                douleurDate={formattedDouleurDate}
+                tabClass="firstTab"
+              />
+              <ConstantTab
+                diastole={diastoleValue}
+                systole={systoleValue}
+                fc={fcValue}
+                diastoleDate={formattedDiastoleDate}
+                tabClass="secondTab"
+              />
+              <ConstantTab
+                temperature={temperatureValue}
+                temperatureDate={formattedTemperatureDate}
+                tabClass="thirdTab"
+              />
+              <ConstantTab
+                poids={poidsValue}
+                poidsDate={formattedPoidsDate}
+                tabClass="fourthTab"
+              />
+              <ConstantTab
+                saturation={saturationValue}
+                saturationDate={formattedSaturationDate}
+                tabClass="fifthTab"
+              />
+              </div>
+              <Graph />
+              <SectionTop />
+              <SectionBottom />
+            </div>
           </div>
         );
       };

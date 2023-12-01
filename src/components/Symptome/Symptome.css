@@ -1,4 +1,7 @@
 /* Mon fichier MonCarnet.css */
+.Symptome{
+display: flex;
+}
 
 .container-mon-carnet{
 position: relative;

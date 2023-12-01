@@ -130,7 +130,6 @@ let healthInformation = (
         <li key={index}>{treatment}</li>
       ))}
     </ul>
-
     <p className="part-card-form">Mes antécédents</p>
     <ul>
       {formData.antecedents.map((antecedent, index) => (
@@ -141,13 +140,16 @@ let healthInformation = (
 );
 
   return (
+  <>
     <div className="mon-carnet-container">
       <MenuNavigation />
+      <div className='flex-mon-carnet'>
       {formCarnet}
       {healthInformation}
+      </div>
     </div>
+    </>
   );
-  
 }
 
 

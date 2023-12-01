@@ -1,4 +1,9 @@
+.MenuNavigation{
+display: flex;
+}
+
 .sideFlap{
+  
 padding: 4%;
 width: 185px;
 height: 95vh;
@@ -60,6 +65,12 @@ color: #ffffff;
 background-color: rgba(255, 255, 255, .15);
 }
 
+.title-symptocare-menu{
+  display: flex;
+  align-items: center; 
+  flex-direction: column;
+}
+
 .icon.symptoCareLogo{
 width: 40px; 
 height: 40px;
@@ -67,15 +78,15 @@ height: 40px;
 }
 
 .mainTitle{
+  
 font-weight:bolder;
-text-shadow: rgb(85, 83, 81) 1px 15 5px;
-background: linear-gradient(to left, rgb(166, 195, 202), rgb(7, 231, 145));
+background: linear-gradient(to left, rgb(246, 251, 252), rgb(8, 232, 240));
 background-clip: text;
  -webkit-background-clip: text;
  -webkit-text-fill-color: transparent;    
- -webkit-text-stroke-width: 0.2px;
- -webkit-text-stroke-color: rgb(164, 188, 189);
+ -webkit-text-stroke-width: 0.0px;
+ -webkit-text-stroke-color: rgb(67, 249, 255);
 font-size: x-large;
-filter: brightness(1.60);
+filter: brightness(1.50);
 }
 

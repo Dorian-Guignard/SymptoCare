@@ -41,7 +41,7 @@ function Symptome() {
   );
 
   return (
-    <div className="symptome">
+    <div className="Symptome">
       <MenuNavigation />
       {symptomeInformation}
     </div>

@@ -1,17 +1,17 @@
 /* Mon fichier ConstantTab.css */
 
-.constantTab{
+
+.constantTab {
   height: 120px;
   width: 210px;
-  margin-left: 90px;
-  margin-top: 2.5%;
+  margin: 40px 60px 20px 40px;
   border-radius: 10px;
-opacity: 0.85;
-font-size: large;
-text-align: center;
-line-height:1.6;
-font-weight:bolder;
-color: rgb(255, 255, 255);
+  opacity: 0.85;
+  font-size: large;
+  text-align: center;
+  line-height: 1.6;
+  font-weight: bolder;
+  color: rgb(255, 255, 255);
 }
 
 .flex-logo-text{
@@ -30,7 +30,7 @@ color: rgb(255, 255, 255);
 
 .title-tab{
   margin-top: 7px;
-  color: rgba(141, 152, 153, 0.863);
+  color: rgb(255, 255, 255);
 }
 
 .text-tab{

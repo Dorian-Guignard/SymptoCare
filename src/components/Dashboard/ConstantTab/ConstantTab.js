@@ -126,6 +126,7 @@ function ConstantTab({
     </section>
   );
   return (
+    
     <div className={`constantTab ${tabClass}`}>
       {tabClass === "firstTab" ? douleurSection : ""}
       {tabClass === "secondTab" ? cardioSection : ""}
@@ -133,6 +134,7 @@ function ConstantTab({
       {tabClass === "fourthTab" ? poidsSection : ""}
       {tabClass === "fifthTab" ? saturationSection : ""}
     </div>
+    
   );
 }
 

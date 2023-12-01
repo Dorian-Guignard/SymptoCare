@@ -5,7 +5,7 @@ function MenuNavigation(){
 return (
   <div className="MenuNavigation">
     <div className="sideFlap">
-      <div id="title">
+      <div className="title-symptocare-menu">
         <img
           src="/icons/LogoSymptoCare-removebg-preview.png"
           alt="Image"

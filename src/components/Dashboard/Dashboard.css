@@ -1,0 +1,13 @@
+/* Dashboard.css */
+.mon-dashboard-container {
+  height: 100%; /* ou ajustez selon vos besoins */
+  display: flex;
+}
+.constantTab-container {
+  display: flex;
+  justify-content: flex-end;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 3; 
+}

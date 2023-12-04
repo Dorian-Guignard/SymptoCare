@@ -28,39 +28,57 @@ import "./Dashboard.css";
           loading,
         } = DashboardData();
 
+  if (loading) {
+    return (
+      <div class="loader">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+    ); // Vous pouvez utiliser une roue de chargement ici
+  }
+
         return (
           <div className="mon-dashboard-container">
             <div className="app">
               <MenuNavigation />
-              <div className="constantTab-container">
-              <ConstantTab
-                douleur={douleurValue}
-                douleurDate={formattedDouleurDate}
-                tabClass="firstTab"
-              />
-              <ConstantTab
-                diastole={diastoleValue}
-                systole={systoleValue}
-                fc={fcValue}
-                diastoleDate={formattedDiastoleDate}
-                tabClass="secondTab"
-              />
-              <ConstantTab
-                temperature={temperatureValue}
-                temperatureDate={formattedTemperatureDate}
-                tabClass="thirdTab"
-              />
-              <ConstantTab
-                poids={poidsValue}
-                poidsDate={formattedPoidsDate}
-                tabClass="fourthTab"
-              />
-              <ConstantTab
-                saturation={saturationValue}
-                saturationDate={formattedSaturationDate}
-                tabClass="fifthTab"
-              />
-              </div>
+              {loading ? (
+                <div className="loader">
+                  <span className="bar"></span>
+                  <span className="bar"></span>
+                  <span className="bar"></span>
+                </div>
+              ) : (
+                <div className="constantTab-container">
+                  <ConstantTab
+                    douleur={douleurValue}
+                    douleurDate={formattedDouleurDate}
+                    tabClass="firstTab"
+                  />
+                  <ConstantTab
+                    diastole={diastoleValue}
+                    systole={systoleValue}
+                    fc={fcValue}
+                    diastoleDate={formattedDiastoleDate}
+                    tabClass="secondTab"
+                  />
+                  <ConstantTab
+                    temperature={temperatureValue}
+                    temperatureDate={formattedTemperatureDate}
+                    tabClass="thirdTab"
+                  />
+                  <ConstantTab
+                    poids={poidsValue}
+                    poidsDate={formattedPoidsDate}
+                    tabClass="fourthTab"
+                  />
+                  <ConstantTab
+                    saturation={saturationValue}
+                    saturationDate={formattedSaturationDate}
+                    tabClass="fifthTab"
+                  />
+                </div>
+              )}
               <Graph />
               <SectionTop />
               <SectionBottom />

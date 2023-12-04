@@ -174,6 +174,7 @@ export function DashboardData() {
     saturationValue,
     fcValue,
     formattedFcDate,
+    loading
   };
 }
 

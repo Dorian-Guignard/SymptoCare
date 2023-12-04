@@ -1,40 +1,48 @@
 import { useNavigate } from "react-router-dom";
-import React, { useState } from "react";
-import axios from "axios";
 import "./Login.css";
+import { useContext } from "react";
+import { UserContext } from "../../../Utils/providers/UserContext";
+import { useNavigate as useReactRouterNavigate } from "react-router-dom";
 
-function Login() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const navigate = useNavigate();
 
-  const handleLogin = async () => {
+function Login(){
+
+  const navigate = useReactRouterNavigate();
+  const { updateUser } = useContext(UserContext);
+  const {  setIsLoggedIn } = useContext(UserContext);
+
+  const handleLogin = async (values) => {
     try {
-      const response = await axios.post(
-        "http://localhost:8000/api/patients/login", // Assurez-vous que l'URL est correcte
-        {
-          email,
-          password,
-        }
-      );
-
-      if (response.status === 200) {
-        const data = response.data;
-        navigate("/");
-        // Stocker le token ou gérer la session côté client
-      } else {
-        // Gérer les erreurs d'authentification
+      const response = await fetch("http://0.0.0.0:8000/api/login_check", {
+        method: "POST",
+        body: JSON.stringify({
+          username: values.email,
+          password: values.password,
+        }),
+        headers: { "Content-Type": "application/json" },
+      });
+  
+      if (!response.ok) {
+        throw new Error("Email ou mot de passe incorrect");
       }
+  
+      const data = await response.json();
+      updateUser(data.token);
+      message.success("Connexion réussie !");
+      setIsLoggedIn(true);
+      navigate('/')
+      
     } catch (error) {
-      // Gérer les erreurs de requête
-      console.error("Erreur lors de la requête:", error.message);
+      console.error(error);
+      message.error(error.message);
     }
   };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    handleLogin();
+  
+  const onFinishFailed = (errorInfo) => {
+    console.log("Failed:", errorInfo);
   };
+ 
+
 
   return (
     <>
@@ -44,12 +52,14 @@ function Login() {
         </div>
         <div className="form-container-login">
           <h2 className="title-form-login">Se connecter</h2>
-          <form className="form-login" onSubmit={handleSubmit}>
+          <form className="form-login" onSubmit={handleLogin}>
             <div className="form-group-login">
               <label htmlFor="email">Email:</label>
               <input
+                name="email"
                 type="email"
                 id="email"
+                required="true"
                 placeholder="Entrer votre email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -58,8 +68,10 @@ function Login() {
             <div className="form-group-login">
               <label htmlFor="password">Mot de passe:</label>
               <input
+                name="password"
                 type="password"
                 id="password"
+                required="true"
                 placeholder="Entrer votre mot de passe"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}

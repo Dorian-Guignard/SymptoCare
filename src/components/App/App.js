@@ -8,6 +8,7 @@ import Symptome from '../Symptome/Symptome';
 import Historique from '../Historique/Historique';
 import Messagerie from '../Messagerie/Messagerie';
 import Login from '../Log/Login/Login';
+import UserContextProvider from "../../Utils/providers/UserContext";
 
 // == Composant
 function App() {
@@ -50,8 +51,10 @@ if (currentUrl.endsWith("/login")) {
 }
   return (
     <div className="app">
-      {loginIcon}
-      {logoutIcon}
+      <UserContextProvider>
+        {loginIcon}
+        {logoutIcon}
+     
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/" element={<Dashboard />} />
@@ -59,7 +62,8 @@ if (currentUrl.endsWith("/login")) {
         <Route path="/symptomes" element={<Symptome />} />
         <Route path="/messagerie" element={<Messagerie />} />
         <Route path="/historique" element={<Historique />} />
-      </Routes>
+      </Routes> 
+      </UserContextProvider>
     </div>
   );
 }

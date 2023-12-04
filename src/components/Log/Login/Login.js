@@ -1,5 +1,5 @@
-import { useNavigate } from "react-router-dom";
 import "./Login.css";
+import { useState } from "react";
 import { useContext } from "react";
 import { UserContext } from "../../../Utils/providers/UserContext";
 import { useNavigate as useReactRouterNavigate } from "react-router-dom";
@@ -8,8 +8,9 @@ import { useNavigate as useReactRouterNavigate } from "react-router-dom";
 function Login(){
 
   const navigate = useReactRouterNavigate();
-  const { updateUser } = useContext(UserContext);
-  const {  setIsLoggedIn } = useContext(UserContext);
+  const {  setIsLoggedIn, updateUser } = useContext(UserContext);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleLogin = async (values) => {
     try {
@@ -59,7 +60,7 @@ function Login(){
                 name="email"
                 type="email"
                 id="email"
-                required="true"
+                required
                 placeholder="Entrer votre email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -71,7 +72,7 @@ function Login(){
                 name="password"
                 type="password"
                 id="password"
-                required="true"
+                required
                 placeholder="Entrer votre mot de passe"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}

@@ -7,13 +7,16 @@ import { useNavigate as useReactRouterNavigate } from "react-router-dom";
 
 function Login(){
 
-  const navigate = useReactRouterNavigate();
+  let navigate = useReactRouterNavigate();
   const {  setIsLoggedIn, updateUser } = useContext(UserContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+   const [error] = useState(null);
 
   const handleLogin = async (values) => {
+    
     try {
+      debugger
       const response = await fetch("http://0.0.0.0:8000/api/login_check", {
         method: "POST",
         body: JSON.stringify({
@@ -22,16 +25,17 @@ function Login(){
         }),
         headers: { "Content-Type": "application/json" },
       });
-  
+      
       if (!response.ok) {
         throw new Error("Email ou mot de passe incorrect");
       }
-  
+       
       const data = await response.json();
+      console.log(data);
       updateUser(data.token);
       message.success("Connexion réussie !");
       setIsLoggedIn(true);
-      navigate('/')
+      navigate('/accueil')
       
     } catch (error) {
       console.error(error);
@@ -39,12 +43,6 @@ function Login(){
     }
   };
   
-  const onFinishFailed = (errorInfo) => {
-    console.log("Failed:", errorInfo);
-  };
- 
-
-
   return (
     <>
       <div className="login-container">
@@ -53,13 +51,19 @@ function Login(){
         </div>
         <div className="form-container-login">
           <h2 className="title-form-login">Se connecter</h2>
-          <form className="form-login" onSubmit={handleLogin}>
+          <form
+            className="form-login"
+            onSubmit={handleLogin}
+            
+          >
+            {error && <div className="error-message">{error}</div>}
             <div className="form-group-login">
               <label htmlFor="email">Email:</label>
               <input
                 name="email"
                 type="email"
                 id="email"
+                autoComplete="email"
                 required
                 placeholder="Entrer votre email"
                 value={email}
@@ -85,7 +89,7 @@ function Login(){
         </div>
       </div>
     </>
-  );
+  )
 }
 
 export default Login;

@@ -16,7 +16,7 @@ return (
 
       <div id="navTabUl">
         <ul>
-          <Link to="/">
+          <Link to="/accueil">
             <li className="navTab">
               <div className="icon-text">
                 <img src="/icons/menu.png" alt="Image" className="icon" />

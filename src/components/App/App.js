@@ -10,6 +10,19 @@ import Messagerie from '../Messagerie/Messagerie';
 import Login from '../Log/Login/Login';
 import UserContextProvider from "../../Utils/providers/UserContext";
 
+function closeButton(e){
+const currentUrl = window.location.href;
+
+// Vérifier si l'URL se termine par "/login"
+if (currentUrl.endsWith("/login")) {
+  e.preventDefault();
+  // Si c'est le cas, définir les classes à null
+  logoutIcon = null;
+  loginIcon = null;
+}
+
+}
+
 // == Composant
 function App() {
 
@@ -40,29 +53,23 @@ let logoutIcon = (
     </button>
   </div>
 );
-const currentUrl = window.location.href;
 
-// Vérifier si l'URL se termine par "/login"
-if (currentUrl.endsWith("/login")) {
-  // Si c'est le cas, définir les classes à null
-  logoutIcon = null;
-  loginIcon = null;
+closeButton();
 
-}
   return (
     <div className="app">
       <UserContextProvider>
         {loginIcon}
         {logoutIcon}
-     
-      <Routes>
-        <Route path="/login" element={<Login />} />
-        <Route path="/" element={<Dashboard />} />
-        <Route path="/mon-carnet" element={<MonCarnet />} />
-        <Route path="/symptomes" element={<Symptome />} />
-        <Route path="/messagerie" element={<Messagerie />} />
-        <Route path="/historique" element={<Historique />} />
-      </Routes> 
+
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route path="/accueil" element={<Dashboard />} />
+          <Route path="/mon-carnet" element={<MonCarnet />} />
+          <Route path="/symptomes" element={<Symptome />} />
+          <Route path="/messagerie" element={<Messagerie />} />
+          <Route path="/historique" element={<Historique />} />
+        </Routes>
       </UserContextProvider>
     </div>
   );

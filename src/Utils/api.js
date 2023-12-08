@@ -1,19 +1,38 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 
+const api = axios.create({
+  baseURL: "http://localhost:8000/api",
+  headers: {
+    "Content-Type": "application/json",
+  },
+});
+
 export const useGetConstant = () => {
   const [loading, setLoading] = useState(true);
   const [patients, setPatients] = useState([]);
+  const [token, setToken] = useState(null);
+
+  // Fonction pour effectuer l'authentification et récupérer le token
+  const login = async (credentials) => {
+    try {
+      const response = await api.post("/login", credentials);
+      const { token } = response.data;
+      setToken(token);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(
-          "http://localhost:8000/api/patients/1/"
-        );
-        const patientsAPI = response.data;
-        setPatients(patientsAPI);
-        
+        // Vérifier si le token existe avant de faire la requête
+        if (token) {
+          const response = await api.get("/user/usersconnect");
+          const patientsAPI = response.data;
+          setPatients(patientsAPI);
+        }
       } catch (error) {
         console.error(error);
       } finally {
@@ -25,9 +44,7 @@ export const useGetConstant = () => {
     if (!patients.length) {
       fetchData();
     }
-  }, []);
+  }, [token, patients.length]);
 
-  return { loading, patients };
+  return { loading, patients, login };
 };
-
-

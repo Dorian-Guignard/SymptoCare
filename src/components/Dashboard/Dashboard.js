@@ -8,9 +8,10 @@ import SectionBottom from "./SectionBottom/SectionBottom.js";
 import "./Dashboard.css";
 
 
-
       // == Composant App.js
       function Dashboard() {
+
+        
 
         const {
           diastoleValue,
@@ -28,30 +29,22 @@ import "./Dashboard.css";
           loading,
         } = DashboardData();
 
-  if (loading) {
-    return (
-      <div class="loader">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </div>
-    ); // Vous pouvez utiliser une roue de chargement ici
-  }
+        let loader = (      
+        <div className="loader">
+        <span className="bar"></span>
+        <span className="bar"></span>
+        <span className="bar"></span>
+        </div>)
 
         return (
           <div className="mon-dashboard-container">
-            <div className="app">
+            <div className="app2">
+
               <MenuNavigation />
-              {loading ? (
-                <div className="loader">
-                  <span className="bar"></span>
-                  <span className="bar"></span>
-                  <span className="bar"></span>
-                </div>
-              ) : (
+
                 <div className="constantTab-container">
                   <ConstantTab
-                    douleur={douleurValue}
+                    douleur={loading ? ( loader) : (douleurValue)}
                     douleurDate={formattedDouleurDate}
                     tabClass="firstTab"
                   />
@@ -78,7 +71,7 @@ import "./Dashboard.css";
                     tabClass="fifthTab"
                   />
                 </div>
-              )}
+              
               <Graph />
               <SectionTop />
               <SectionBottom />

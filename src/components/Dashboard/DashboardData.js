@@ -1,11 +1,9 @@
 import { useGetConstant } from "../../Utils/api.js";
-import { UserContext } from "../../Utils/providers/UserContext.js";
-import React, { useContext } from "react";
 
 
 export function DashboardData() {
-  const { loading, patients } = useGetConstant();
-  const { userData } = useContext(UserContext);
+const { loading, patients} = useGetConstant();
+  
  
 
   function decimal(value0) {

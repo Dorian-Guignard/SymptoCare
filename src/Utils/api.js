@@ -10,7 +10,7 @@ const api = axios.create({
 
 export const useGetConstant = () => {
   const [loading, setLoading] = useState(true);
-  const [patients, setPatients] = useState([]);
+  const [patients, setPatients] = useState();
   const [token, setToken] = useState(null);
 
   // Fonction pour effectuer l'authentification et récupérer le token
@@ -40,11 +40,11 @@ export const useGetConstant = () => {
       }
     };
 
-    // Assurez-vous que le tableau de dépendances est vide si vous voulez que cet effet ne s'exécute qu'une fois
-    if (!patients.length) {
+    if (!patients) {
       fetchData();
     }
-  }, [token, patients.length]);
-
-  return { loading, patients, login };
+  }, [token, patients]);
+console.log(patients)
+  return { loading, patients, login }
+  
 };

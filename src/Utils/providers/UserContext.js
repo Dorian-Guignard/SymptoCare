@@ -1,3 +1,5 @@
+//SymptoCare/src/Utils/providers/UserContext.js
+
 import React, { createContext, useEffect, useState } from "react";
 import axios from "axios";
 
@@ -21,6 +23,7 @@ const UserContextProvider = ({ children }) => {
     return storedUser ? true : false;
   };
 
+
   const updateUser = (newUser) => {
     setUser(newUser);
     localStorage.setItem("user", JSON.stringify(newUser));
@@ -41,6 +44,7 @@ const UserContextProvider = ({ children }) => {
             ...prevUserData,
             ...userDataFromApi,
           }));
+          
         })
         .catch((error) => {
           console.error(
@@ -57,6 +61,7 @@ const UserContextProvider = ({ children }) => {
     localStorage.removeItem("user");
   };
 
+  
   return (
     <UserContext.Provider
       value={{

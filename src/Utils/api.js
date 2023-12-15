@@ -10,8 +10,9 @@ const api = axios.create({
 
 export const useGetConstant = () => {
   const [loading, setLoading] = useState(true);
-  const [patients, setPatients] = useState();
+  let [patients, setPatients] = useState();
   const [token, setToken] = useState(null);
+  const [isInitialMount, setIsInitialMount] = useState(true);
 
   // Fonction pour effectuer l'authentification et récupérer le token
   const login = async (credentials) => {
@@ -26,25 +27,31 @@ export const useGetConstant = () => {
 
   useEffect(() => {
     const fetchData = async () => {
+      console.log("Fetching data...");
       try {
         // Vérifier si le token existe avant de faire la requête
         if (token) {
-          const response = await api.get("/user/usersconnect");
-          const patientsAPI = response.data;
+          const response = await api.get("patients/currentuserbypatient");
+          let patientsAPI = response.data;
+          
           setPatients(patientsAPI);
+          console.log("Patients API:", patientsAPI);
+          console.log("FetchData executed successfully");
         }
       } catch (error) {
         console.error(error);
       } finally {
         setLoading(false);
+        // Marquez l'état initial comme "false" après la première exécution
+        setIsInitialMount(false);
       }
     };
 
-    if (!patients) {
+    // Assurez-vous que fetchData ne s'exécute qu'après le rendu initial
+    if (isInitialMount) {
       fetchData();
     }
-  }, [token, patients]);
-console.log(patients)
-  return { loading, patients, login }
-  
+  }, [token, isInitialMount]);
+
+  return { loading, patients, login };
 };

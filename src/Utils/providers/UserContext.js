@@ -37,7 +37,7 @@ const UserContextProvider = ({ children }) => {
     // Après avoir mis à jour le token, effectuez une requête pour obtenir les informations de l'utilisateur
     if (token) {
       axios
-        .get("http://localhost:8000/api/user/usersconnect")
+        .get("http://localhost:8000/api/usersconnect")
         .then((response) => {
           const userDataFromApi = response.data.user;
           setUserData((prevUserData) => ({

@@ -4,7 +4,7 @@ import { useGetConstant } from "../../Utils/api.js";
 export function DashboardData() {
 const { loading, patients} = useGetConstant();
   
- 
+ console.log("Patients API:", patients);
 
   function decimal(value0) {
     return Math.trunc(value0);

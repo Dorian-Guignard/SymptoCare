@@ -19,39 +19,44 @@ export const useGetConstant = () => {
     try {
       const response = await api.post("/login", credentials);
       const { token } = response.data;
+      console.log(response);
       setToken(token);
     } catch (error) {
-      console.error(error);
+      console.error("Error fetching data:", error);
     }
   };
 
   useEffect(() => {
-    const fetchData = async () => {
-      console.log("Fetching data...");
-      try {
-        // Vérifier si le token existe avant de faire la requête
-        if (token) {
-          const response = await api.get("patients/currentuserbypatient");
-          let patientsAPI = response.data;
-          
-          setPatients(patientsAPI);
-          console.log("Patients API:", patientsAPI);
-          console.log("FetchData executed successfully");
-        }
-      } catch (error) {
-        console.error(error);
-      } finally {
-        setLoading(false);
-        // Marquez l'état initial comme "false" après la première exécution
-        setIsInitialMount(false);
-      }
+    // Define the URL
+    const url = "http://localhost:8000/api/patients/";
+
+    // Define headers
+    const headers = {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
     };
 
-    // Assurez-vous que fetchData ne s'exécute qu'après le rendu initial
-    if (isInitialMount) {
-      fetchData();
-    }
-  }, [token, isInitialMount]);
+    // Make the request
+    fetch(url, {
+      method: "GET", // or 'POST', 'PUT', etc.
+      headers: headers,
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
 
-  return { loading, patients, login };
-};
+        }
+        console.log(response.json())
+        return response.json();
+      })
+      .then((data) => {
+        console.log(data)
+        setData(data);
+      })
+      .catch((error) => {
+        console.error("There was a problem with the fetch operation:", error);
+      });
+  }, []);
+
+
+}

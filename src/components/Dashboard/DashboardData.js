@@ -17,7 +17,7 @@ const { loading, patients} = useGetConstant();
 
   // Obtenez les détails du patient
   const patientDetails = patients.patients;
-
+console.log("detail de patients : ",patientDetails)
   // Triez le tableau constants par date dans l'ordre décroissant
   const sortedConstants = patientDetails.constants.sort(
     (a, b) => new Date(b.date) - new Date(a.date)
